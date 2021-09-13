@@ -1,15 +1,10 @@
-Jenkinsfile (Declarative Pipeline)
-pipeline {
-    agent any
-    stages {
-        stage('Build') {
-            steps {
-                sh 'echo "Hello World"'
-                sh '''
-                    echo "Multiline shell steps works too"
-                    ls -lah
-                '''
-            }
-        }
+node {
+    stage 'Checkout'
+
+    checkout scm
+
+    stage 'Gradle Static Analysis'
+    withSonarQubeEnv {
+        sh "./gradlew clean sonarqube"
     }
-}
+}   
