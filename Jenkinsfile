@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-echo "Hello for pipeline"
-=======
 Jenkinsfile (Declarative Pipeline)
 
 pipeline {
@@ -9,21 +6,19 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                sh 'echo "build...."'
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                sh 'echo "test...."'
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                sh 'echo "Deploying...."'
+                sh 'echo "Deploying more...."'
             }
         }
     }
 }
-
-
->>>>>>> 2e4cbe5c32573e66cbda92cd695365cd35c683c9
